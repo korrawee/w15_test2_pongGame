@@ -8,6 +8,7 @@ void draw(){
   
 }
 
+//==================================================================
 class Ball{
   //position
   float x;
@@ -34,7 +35,7 @@ class Ball{
     
   }
   
-  //collision detection
+  //edge detected
   float left(){
     return x-diameter/2;
   }
@@ -52,6 +53,7 @@ class Ball{
   }
 }
 
+//==================================================================
 class Paddle{
   //position
   float x;
@@ -81,4 +83,17 @@ class Paddle{
     
   }
   
+  //edge detected
+  float left(){
+    return x-w/2; 
+  }
+  float right(){
+    return x+w/2;
+  }
+  float top(){
+    return y-h/2;
+  }
+  float bottom(){
+    return y+h/2;
+  }
 }
