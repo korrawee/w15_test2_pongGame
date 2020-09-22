@@ -21,7 +21,11 @@ void draw(){
   paddleRight.move();
   
   if(ball.right() > paddleRight.left() || ball.left() < paddleLeft.right()){
-    ball.speedX = -ball.speedX;  
+    ball.speedX = -ball.speedX;
+  }
+  
+  if(ball.top() < 0 || ball.bottom() > height){
+    ball.speedY = -ball.speedY;
   }
   
 }
@@ -44,6 +48,7 @@ class Ball{
     y = tmpY;
     diameter = tmpDiam;
     speedX = 4;
+    speedY = 3;
   }
   
   void display(){
@@ -53,6 +58,7 @@ class Ball{
   
   void move(){
     x = x + speedX;
+    y = y + speedY;
   }
   
   //edge detected
