@@ -1,15 +1,20 @@
-Paddle paddle;
+Paddle paddleLeft;
+Paddle paddleRight;
 
+Ball ball;
 void setup(){
   size(800,600);
-  paddle = new Paddle(15, height/2, 30,200);
-  
+  paddleLeft = new Paddle(15, height/2, 30,200);
+  paddleRight = new Paddle(width-15, height/2, 30, 200);
 }
 
 void draw(){
   background(0);
-  paddle.display();
+  paddleLeft.display();
+  paddleLeft.move();
   
+  paddleRight.display();
+  paddleRight.move();
 }
 
 //==================================================================
@@ -85,7 +90,7 @@ class Paddle{
   }
   
   void move(){
-    
+    y = mouseY;
   }
   
   //edge detected
