@@ -20,8 +20,11 @@ void draw(){
   paddleRight.display();
   paddleRight.move();
   
-  if(ball.right() > paddleRight.left() || ball.left() < paddleLeft.right()){
+  if(ball.right() > paddleRight.left() && ball.top() > paddleRight.top() && ball.bottom() < paddleRight.bottom()){
     ball.speedX = -ball.speedX;
+  }
+  if(ball.left() < paddleLeft.right() && ball.top() > paddleLeft.top() && ball.bottom() < paddleLeft.bottom()){
+    ball.speedX = -ball.speedX;  
   }
   
   if(ball.top() < 0 || ball.bottom() > height){
