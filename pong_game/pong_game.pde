@@ -1,10 +1,14 @@
+Paddle paddle;
+
 void setup(){
-  
+  size(800,600);
+  paddle = new Paddle(15, height/2, 30,200);
   
 }
 
 void draw(){
-  
+  background(0);
+  paddle.display();
   
 }
 
@@ -76,7 +80,8 @@ class Paddle{
   }
   
   void display(){
-    
+    fill(255);
+    rect(x-w/2,y-h/2,w,h);
   }
   
   void move(){
