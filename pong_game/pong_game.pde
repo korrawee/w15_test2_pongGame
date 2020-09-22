@@ -20,6 +20,9 @@ void draw(){
   paddleRight.display();
   paddleRight.move();
   
+  if(ball.right() > paddleRight.left() || ball.left() < paddleLeft.right()){
+    ball.speedX = -ball.speedX;  
+  }
   
 }
 
