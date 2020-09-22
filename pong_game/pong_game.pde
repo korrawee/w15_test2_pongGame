@@ -5,19 +5,22 @@ Ball ball;
 void setup(){
   size(800,600);
   ball = new Ball(width/2, height/2, 50);
-  paddleLeft = new Paddle(15, height/2, 30,200);
-  paddleRight = new Paddle(width-15, height/2, 30, 200);
+  paddleLeft = new Paddle(10, height/2, 10, 200);
+  paddleRight = new Paddle(width-10, height/2, 10, 200);
 }
 
 void draw(){
   background(0);
   ball.display();
+  ball.move();
   
   paddleLeft.display();
   paddleLeft.move();
   
   paddleRight.display();
   paddleRight.move();
+  
+  
 }
 
 //==================================================================
@@ -37,15 +40,16 @@ class Ball{
     x = tmpX;
     y = tmpY;
     diameter = tmpDiam;
+    speedX = 4;
   }
   
   void display(){
     fill(255); //set the drawing color
-    ellipse(x,y,diameter,diameter); //draw a circle
+    ellipse(x, y, diameter, diameter); //draw a circle
   }
   
   void move(){
-    
+    x = x + speedX;
   }
   
   //edge detected
@@ -86,7 +90,7 @@ class Paddle{
   
   void display(){
     fill(255);
-    rect(x-w/2,y-h/2,w,h);
+    rect(x-w/2, y-h/2, w,h);
   }
   
   void move(){
