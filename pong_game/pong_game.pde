@@ -33,6 +33,23 @@ class Ball{
   void move(){
     
   }
+  
+  //collision detection
+  float left(){
+    return x-diameter/2;
+  }
+  
+  float right(){
+    return x+diameter/2;
+  }
+  
+  float top(){
+    return y-diameter/2;
+  }
+  
+  float bottom(){
+    return y+diameter/2;
+  }
 }
 
 class Paddle{
@@ -62,6 +79,6 @@ class Paddle{
   
   void move(){
     
-    
   }
+  
 }
