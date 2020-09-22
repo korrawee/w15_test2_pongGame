@@ -4,12 +4,15 @@ Paddle paddleRight;
 Ball ball;
 void setup(){
   size(800,600);
+  ball = new Ball(width/2, height/2, 50);
   paddleLeft = new Paddle(15, height/2, 30,200);
   paddleRight = new Paddle(width-15, height/2, 30, 200);
 }
 
 void draw(){
   background(0);
+  ball.display();
+  
   paddleLeft.display();
   paddleLeft.move();
   
@@ -37,7 +40,8 @@ class Ball{
   }
   
   void display(){
-    
+    fill(255); //set the drawing color
+    ellipse(x,y,diameter,diameter); //draw a circle
   }
   
   void move(){
@@ -71,10 +75,6 @@ class Paddle{
   //size
   float w;
   float h;
-  
-  //velocity
-  float speedY;
-  float speedX;
   
   Paddle(int tmpX, int tmpY, int tmpW, int tmpH){
     x = tmpX;
