@@ -3,9 +3,12 @@ Paddle paddleLeft;
 Paddle paddleRight;
 Ball ball;
 
+//decleare playerPoint for keep both player point
+int[] playerPoint = {0,0};
 void setup(){
   size(800,600);
-  
+  textSize(30); 
+
   //create object
   ball = new Ball(width/2, height/2, 50);
   paddleLeft = new Paddle(10, height/2, 10, 200);
@@ -15,7 +18,12 @@ void setup(){
 void draw(){
   background(0);
   
-  
+  //draw table and scoreboard
+  stroke(255);
+  strokeWeight(4);
+  line(width/2, height-height, width/2, height);
+  text("Player1  " + str(playerPoint[0]), width/6, height/9);
+  text("Player2  " + str(playerPoint[1]), width-width/3, height/9);
   //display ball and move the ball
   ball.display();
   ball.move();
