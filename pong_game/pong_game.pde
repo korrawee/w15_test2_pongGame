@@ -1,7 +1,7 @@
 //declare object variable
 Paddle paddleRight;
 Ball ball;
-
+int i = 0;
 //decleare playerPoint for keep both player point
 int[] playerPoint = {0,0};
 void setup(){
@@ -11,6 +11,8 @@ void setup(){
   //create object
   ball = new Ball(width/2, height/2, 50);
   paddleRight = new Paddle(width-10, height/2, 10, 200);
+  rect(random(random(10, width/2)), random(0, height), 20, 200);
+
 }
 
 void draw(){
@@ -20,6 +22,11 @@ void draw(){
   ball.display();
   ball.move();
   
+  //display wall randomly
+  fill(255);
+  if(ball.left() < 0){
+    rect(random(random(10, width/2)), random(0, height), 20, 200);
+  }
   //display all paddle
   paddleRight.display();
   
