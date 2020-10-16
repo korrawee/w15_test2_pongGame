@@ -1,5 +1,4 @@
 //declare object variable
-Paddle paddleLeft;
 Paddle paddleRight;
 Ball ball;
 
@@ -11,7 +10,6 @@ void setup(){
 
   //create object
   ball = new Ball(width/2, height/2, 50);
-  paddleLeft = new Paddle(10, height/2, 10, 200);
   paddleRight = new Paddle(width-10, height/2, 10, 200);
 }
 
@@ -30,25 +28,17 @@ void draw(){
   ball.move();
   
   //display all paddle
-  paddleLeft.display();
   paddleRight.display();
   
-  if(mouseX < (width/2)){ //control paddle left if mouse pointing on leftside of the screen
-   paddleLeft.move();     //control paddle right if mouse pointing on rightside of the screen
-  }else{
-   paddleRight.move(); 
+  //control paddle right if mouse pointing on rightside of the screen
+  if(mouseX < width){ 
+    paddleRight.move(); 
   }
   
   //bouncing condition rightside
   if(ball.right() > paddleRight.left() && ball.top() > paddleRight.top() && ball.bottom() < paddleRight.bottom()){
     ball.speedX = -ball.speedX;
   }
-  
-  //bouncing condition rightside
-  if(ball.left() < paddleLeft.right() && ball.top() > paddleLeft.top() && ball.bottom() < paddleLeft.bottom()){
-    ball.speedX = -ball.speedX;  
-  }
-  
   if(ball.top() < 0 || ball.bottom() > height){
     ball.speedY = -ball.speedY;
   }
