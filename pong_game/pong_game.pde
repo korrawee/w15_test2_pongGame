@@ -16,13 +16,6 @@ void setup(){
 void draw(){
   background(0);
   
-  //draw table and scoreboard
-  stroke(255);
-  strokeWeight(4);
-  line(width/2, height-height, width/2, height);
-  text("Player1  " + str(playerPoint[0]), width/6, height/9);
-  text("Player2  " + str(playerPoint[1]), width-width/3, height/9);
-  
   //display ball and move the ball
   ball.display();
   ball.move();
@@ -47,18 +40,10 @@ void draw(){
   if(ball.top() < paddleRight.top() && ball.right() > width || ball.bottom() > paddleRight.bottom() && ball.right() > width ){
     delay(1);
     ball.reset();
-    playerPoint[0] += 1;
   }
-  if(ball.top() < paddleRight.top() && ball.right() < 0 || ball.bottom() > paddleRight.bottom() && ball.right() < 0 ){
+  if(ball.left() < 0 ){
     delay(1);
-    ball.reset();
-    playerPoint[1] += 1;
-  }
-  if(playerPoint[0] == 10 || playerPoint[1] == 10){
-    delay(500); 
-    playerPoint[0] = 0;
-    playerPoint[1] = 0;
-    ball.reset();
+    ball.speedX = -ball.speedX;
   }
 }
 
